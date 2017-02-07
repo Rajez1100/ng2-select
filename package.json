@@ -111,7 +111,7 @@
     "wallaby-webpack": "0.0.30",
     "webdriver-manager": "11.1.1",
     "zone.js": "0.7.5",
-    "ng2-select": "^1.2.0"
+    "ng2-select": "https://github.com/Rajez1100/ng2-select/archive/f47e68f7688c7d7b81731511931d92974dd87ab8"
   },
   "contributors": [
     {
