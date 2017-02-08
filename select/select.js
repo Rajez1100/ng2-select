@@ -19,9 +19,8 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 var styles = "\n  .ui-select-toggle {\n    position: relative;\n  }\n\n  /* Fix caret going into new line in Firefox */\n  .ui-select-placeholder {\n    float: left;\n  }\n  \n  /* Fix Bootstrap dropdown position when inside a input-group */\n  .input-group > .dropdown {\n    /* Instead of relative */\n    position: static;\n  }\n  \n  .ui-select-match > .btn {\n    /* Instead of center because of .btn */\n    text-align: left !important;\n  }\n  \n  .ui-select-match > .caret {\n    position: absolute;\n    top: 45%;\n    right: 15px;\n  }\n  \n  .ui-disabled {\n    background-color: #eceeef;\n    border-radius: 4px;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 5;\n    opacity: 0.6;\n    top: 0;\n    left: 0;\n    cursor: not-allowed;\n  }\n  \n  .ui-select-choices {\n    width: 100%;\n    height: auto;\n    max-height: 200px;\n    overflow-x: hidden;\n    margin-top: 0;\n  }\n  \n  .ui-select-multiple .ui-select-choices {\n    margin-top: 1px;\n  }\n  .ui-select-choices-row>a {\n      display: block;\n      padding: 3px 20px;\n      clear: both;\n      font-weight: 400;\n      line-height: 1.42857143;\n      color: #333;\n      white-space: nowrap;\n  }\n  .ui-select-choices-row.active>a {\n      color: #fff;\n      text-decoration: none;\n      outline: 0;\n      background-color: #428bca;\n  }\n  \n  .ui-select-multiple {\n    height: auto;\n    padding:3px 3px 0 3px;\n  }\n  \n  .ui-select-multiple input.ui-select-search {\n    background-color: transparent !important; /* To prevent double background when disabled */\n    border: none;\n    outline: none;\n    box-shadow: none;\n    height: 1.6666em;\n    padding: 0;\n    margin-bottom: 3px;\n    \n  }\n  .ui-select-match .close {\n      font-size: 1.6em;\n      line-height: 0.75;\n  }\n  \n  .ui-select-multiple .ui-select-match-item {\n    outline: 0;\n    margin: 0 3px 3px 0;\n  }\n  .ui-select-toggle > .caret {\n      position: absolute;\n      height: 10px;\n      top: 50%;\n      right: 10px;\n      margin-top: -2px;\n  }\n";
 var SelectComponent = (function () {
-    function SelectComponent(element, sanitizer, http) {
+    function SelectComponent(element, sanitizer) {
         this.sanitizer = sanitizer;
-        this.http = http;
         this.allowClear = false;
         this.placeholder = '';
         this.idField = 'id';
@@ -374,23 +373,23 @@ var SelectComponent = (function () {
                     headers.append('Authorization', 'JWT ' + localStorage.getItem(_this.remoteConfig.tokenId));
                 }
             }
-            _this.http
-                .post(_this.remoteConfig.url, JSON.stringify({ 'typed': typed }), { 'headers': headers })
-                .map(function (Response) {
-                var list = Response.json();
-                if (!list) {
-                    _this._items = _this.itemObjects = [];
-                }
-                else {
-                    _this._items = list.filter(function (item) {
-                        if ((typeof item === 'string') || (typeof item === 'object' && item && item[_this.textField] && item[_this.idField])) {
-                            return item;
-                        }
-                    });
-                    _this.itemObjects = _this._items.map(function (item) { return (typeof item === 'string' ? new select_item_1.SelectItem(item) : new select_item_1.SelectItem({ id: item[_this.idField], text: item[_this.textField], children: item[_this.childrenField] })); });
-                }
-                _this.connectingRemote = false;
-            });
+            console.log(typed, headers);
+            // this.http
+            //   .post(this.remoteConfig.url, JSON.stringify({ 'typed': typed }), { 'headers': headers })
+            //   .map(Response => {
+            //     let list: Array<any> = Response.json();
+            //     if (!list) {
+            //       this._items = this.itemObjects = [];
+            //     } else {
+            //       this._items = list.filter((item: any) => {
+            //         if ((typeof item === 'string') || (typeof item === 'object' && item && item[this.textField] && item[this.idField])) {
+            //           return item;
+            //         }
+            //       });
+            //       this.itemObjects = this._items.map((item: any) => (typeof item === 'string' ? new SelectItem(item) : new SelectItem({ id: item[this.idField], text: item[this.textField], children: item[this.childrenField] })));
+            //     }
+            //     this.connectingRemote = false;
+            //   })
         }, this.remoteConfig.debounceTime);
     };
     __decorate([
