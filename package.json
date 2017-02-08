@@ -1,136 +1,93 @@
 {
-  "name": "ng2-select-base",
-  "version": "1.2.0",
-  "private": true,
-  "description": "Angular2 based replacement for select boxes",
-  "scripts": {
-    "lite-server": "lite-server -c demo/bs-config.json",
-    "demo.serve": "run-s build link demo.build lite-server",
-    "demo.gh-pages": "run-s build demo.build demo.deploy",
-    "demo.build": "ng build -prod --aot",
-    "demo.deploy": "gh-pages -d demo/dist",
-    "link": "ngm link -p src --here",
-    "lint": "exit 0",
-    "disable-lint": "tslint \"**/*.ts\" -c tslint.json --fix --type-check -t prose -e \"node_modules/**\" -e \"dist/**\" -e \"temp/**\" -e \"scripts/docs/**\"",
-    "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
-    "flow.github-release": "conventional-github-releaser -p angular",
-    "build": "ngm build -p src --clean",
-    "build.watch": "ngm build -p src --watch --skip-bundles",
-    "start": "ng serve --aot",
-    "pretest": "run-s lint build link",
-    "test": "ng test -sr",
-    "test-coverage": "ng test -sr -cc",
-    "version": "npm run flow.changelog && git add -A"
+  "_args": [
+    [
+      {
+        "raw": "ng2-select@^1.2.0",
+        "scope": null,
+        "escapedName": "ng2-select",
+        "name": "ng2-select",
+        "rawSpec": "^1.2.0",
+        "spec": ">=1.2.0 <2.0.0",
+        "type": "range"
+      },
+      "/home/rajez/starworks/projects/redington/trunk/angular2"
+    ]
+  ],
+  "_from": "ng2-select@>=1.2.0 <2.0.0",
+  "_id": "ng2-select@1.2.0",
+  "_inCache": true,
+  "_location": "/ng2-select",
+  "_nodeVersion": "6.9.1",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/ng2-select-1.2.0.tgz_1484745369059_0.14009258872829378"
   },
-  "main": "bundles/ng2-select.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
+  "_npmUser": {
+    "name": "valorkin",
+    "email": "valorkin@gmail.com"
+  },
+  "_npmVersion": "4.1.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ng2-select@^1.2.0",
+    "scope": null,
+    "escapedName": "ng2-select",
+    "name": "ng2-select",
+    "rawSpec": "^1.2.0",
+    "spec": ">=1.2.0 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ng2-select/-/ng2-select-1.2.0.tgz",
+  "_shasum": "5c90618bffbe32acc5ee1c128c88547059b4f11c",
+  "_shrinkwrap": null,
+  "_spec": "ng2-select@^1.2.0",
+  "_where": "/home/rajez/starworks/projects/redington/trunk/angular2",
+  "author": {
+    "name": "Vyacheslav Chub",
+    "email": "vyacheslav.chub@valor-software.com"
+  },
+  "bugs": {
+    "url": "https://github.com/valor-software/ng2-select/issues"
+  },
+  "dependencies": {},
+  "description": "Angular2 based replacement for select boxes",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "5c90618bffbe32acc5ee1c128c88547059b4f11c",
+    "tarball": "https://registry.npmjs.org/ng2-select/-/ng2-select-1.2.0.tgz"
+  },
+  "homepage": "https://github.com/valor-software/ng2-select#readme",
   "keywords": [
     "angular2",
     "select",
     "selectify",
     "angularjs"
   ],
-  "author": "Vyacheslav Chub <vyacheslav.chub@valor-software.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ng2-select.git"
-  },
-  "bugs": {
-    "url": "https://github.com/valor-software/ng2-select/issues"
-  },
-  "homepage": "https://github.com/valor-software/ng2-select#readme",
+  "main": "bundles/ng2-select.umd.js",
+  "maintainers": [
+    {
+      "name": "valorkin",
+      "email": "valorkin@gmail.com"
+    }
+  ],
+  "module": "index.js",
+  "name": "ng2-select",
+  "optionalDependencies": {},
   "peerDependencies": {
     "@angular/common": "^2.3.0",
     "@angular/core": "^2.3.0"
   },
-  "devDependencies": {
-    "@angular/common": "2.4.3",
-    "@angular/compiler": "2.4.3",
-    "@angular/compiler-cli": "2.4.3",
-    "@angular/core": "2.4.3",
-    "@angular/forms": "2.4.3",
-    "@angular/http": "2.4.3",
-    "@angular/language-service": "2.4.3",
-    "@angular/platform-browser": "2.4.3",
-    "@angular/platform-browser-dynamic": "2.4.3",
-    "@angular/router": "3.4.3",
-    "@angular/tsc-wrapped": "0.5.1",
-    "@ngtools/webpack": "1.2.3",
-    "@types/jasmine": "2.5.40",
-    "@types/marked": "0.0.28",
-    "@types/node": "7.0.0",
-    "@types/webpack": "^2.2.1",
-    "angular-cli": "1.0.0-beta.25.5",
-    "bootstrap": "3.3.7",
-    "chokidar-cli": "1.2.0",
-    "classlist-polyfill": "1.0.3",
-    "codecov": "1.0.1",
-    "codelyzer": "~2.0.0-beta.4",
-    "conventional-changelog-cli": "1.2.0",
-    "conventional-github-releaser": "1.1.3",
-    "core-js": "^2.4.1",
-    "cpy": "5.0.0",
-    "cpy-cli": "1.0.1",
-    "del-cli": "0.2.1",
-    "gh-pages": "0.12.0",
-    "gitignore-to-glob": "0.3.0",
-    "google-code-prettify": "1.0.5",
-    "html-loader": "0.4.4",
-    "jasmine": "2.5.3",
-    "jasmine-core": "2.5.2",
-    "jasmine-data-provider": "2.2.0",
-    "jasmine-spec-reporter": "3.2.0",
-    "karma": "1.4.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-cli": "^1.0.1",
-    "karma-jasmine": "^1.0.2",
-    "karma-remap-istanbul": "0.4.0",
-    "karma-sauce-launcher": "1.1.0",
-    "lite-server": "2.2.2",
-    "lodash": "4.17.4",
-    "markdown-loader": "^0.1.7",
-    "marked": "0.3.6",
-    "ng2-bootstrap": "1.2.2",
-    "ng2-page-scroll": "4.0.0-beta.2",
-    "ngm-cli": "0.4.3",
-    "npm-run-all": "^4.0.1",
-    "pre-commit": "1.2.2",
-    "protractor": "5.0.0",
-    "reflect-metadata": "0.1.9",
-    "require-dir": "0.3.1",
-    "rxjs": "5.0.3",
-    "systemjs-builder": "0.15.34",
-    "ts-helpers": "^1.1.1",
-    "ts-node": "2.0.0",
-    "tslint": "4.3.1",
-    "tslint-config-valorsoft": "1.2.0",
-    "typedoc": "0.5.5",
-    "typescript": "2.1.5",
-    "wallaby-webpack": "0.0.30",
-    "webdriver-manager": "11.1.1",
-    "zone.js": "0.7.5",
-    "ng2-select": "https://github.com/Rajez1100/ng2-select/archive/f47e68f7688c7d7b81731511931d92974dd87ab8"
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/valor-software/ng2-select.git"
   },
-  "contributors": [
-    {
-      "name": "Vyacheslav Chub",
-      "email": "vyacheslav.chub@valor-software.com",
-      "url": "https://github.com/buchslava"
-    },
-    {
-      "name": "Dmitriy Shekhovtsov",
-      "email": "valorkin@gmail.com",
-      "url": "https://github.com/valorkin"
-    },
-    {
-      "name": "Oleksandr Telnov",
-      "email": "otelnov@gmail.com",
-      "url": "https://github.com/otelnov"
-    }
-  ],
-  "dependencies": {
-    "ng2-select": "^1.2.0"
-  }
+  "scripts": {},
+  "typings": "index.d.ts",
+  "version": "1.2.0"
 }
